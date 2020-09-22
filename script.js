@@ -30,6 +30,7 @@ function generatePassword(charLength) {
         
     // If password length is 8 or greater, ask if user would like to use upperCase, useNumbers, or useSpecial.
     else if (charLength >= 8) {
+    var useLowerCase = confirm ("Do you want to use lower case letters?")
     var useUpperCase = confirm ("Do you want to use upper case letters?");
     var useNumbers = confirm ("Do you want to use numbers?");
     var useSpecial = confirm ("Do you want to use special characters?");
@@ -37,16 +38,17 @@ function generatePassword(charLength) {
     
     var charUse = "";
 
+
     // If - Else if and Else statements regarding selection of password characteristics 
     if (useUpperCase === false && useNumbers === false && useSpecial === false){
-        console.log(charLength);
         for (var i = 0; i < charLength; i++){
             var num = Math.floor(Math.random() * charSet.lowerCase.length);
         charUse = charUse + charSet.lowerCase[num];
-        console.log('charUse', charUse);
         }
     return charUse;
-    } else if (useUpperCase === true && useNumbers === false  && useSpecial === false) {
+    } 
+    
+    else if (useUpperCase === true && useNumbers === false  && useSpecial === false) {
         for (var i = 0; i < charLength; i++){
             var selectedArray = Math.round(Math.random());
             if(selectedArray===0){
@@ -61,18 +63,130 @@ function generatePassword(charLength) {
             
         }
     return charUse;
-    } else if (useUpperCase === true && useNumbers === true && useSpecial === false) {
-        return console.log("lower case, upper case and numbers only"); //charSet.lowerCase[i].upperCase[i].numbers[i]
-    } else if (useUpperCase === true && useNumbers === false && useSpecial === true) {
-        return console.log("lower case, upper case and special only"); //charSet.lowerCase[i].upperCase[i].special[i]
-    } else if (useUpperCase === false && useNumbers === true && useSpecial === false){
-        return console.log("lower case and numbers only"); //charSet.lowerCase[i].numbers[i]
-    } else if (useUpperCase === false && useNumbers === true && useSpecial === true){
-        return console.log("lower case, numbers and special only"); //charSet.lowerCase[i].numbers[i].special[i]
-    } else if (useUpperCase === false && useNumbers === false && useSpecial === true){
-        return console.log("lower case and special only"); //charSet.lowerCase[i].special[i]
-    } else {
-        return console.log("all charSet"); //charSet[i]
+    } 
+    
+    else if (useUpperCase === true && useNumbers === true && useSpecial === false) {
+        for (var i = 0; i < charLength; i++){
+            var selectedArray = Math.round(Math.random()*2);
+            if(selectedArray===0){
+                var num1 = Math.floor(Math.random() * charSet.lowerCase.length);
+                charUse = charUse + charSet.lowerCase[num1];
+            }
+            else if (selectedArray === 1) {
+                var num2 = Math.floor(Math.random() * charSet.upperCase.length);
+                charUse = charUse + charSet.upperCase[num2];
+            
+            }   
+            else {
+                var num3 = Math.floor(Math.random() * charSet.numbers.length);
+                charUse = charUse + charSet.numbers[num3];
+            }          
+            
+        }
+    return charUse;
+    }
+    
+    else if (useUpperCase === true && useNumbers === false && useSpecial === true) {
+        for (var i = 0; i < charLength; i++){
+            var selectedArray = Math.round(Math.random()*2);
+            if(selectedArray===0){
+                var num1 = Math.floor(Math.random() * charSet.lowerCase.length);
+                charUse = charUse + charSet.lowerCase[num1];
+            }
+            else if (selectedArray === 1) {
+                var num2 = Math.floor(Math.random() * charSet.upperCase.length);
+                charUse = charUse + charSet.upperCase[num2];
+            
+            }   
+            else {
+                var num3 = Math.floor(Math.random() * charSet.special.length);
+                charUse = charUse + charSet.special[num3];
+            }          
+            
+        }
+        return charUse;
+    } 
+    
+    else if (useUpperCase === false && useNumbers === true && useSpecial === false){
+        for (var i = 0; i < charLength; i++){
+            var selectedArray = Math.round(Math.random());
+            if(selectedArray===0){
+                var num1 = Math.floor(Math.random() * charSet.lowerCase.length);
+                charUse = charUse + charSet.lowerCase[num1];
+            }
+            else{
+                var num2 = Math.floor(Math.random() * charSet.numbers.length);
+                charUse = charUse + charSet.numbers[num2];
+
+            }
+            
+        }
+        
+        return charUse;
+    }
+    
+    else if (useUpperCase === false && useNumbers === true && useSpecial === true){
+        for (var i = 0; i < charLength; i++){
+            var selectedArray = Math.round(Math.random()*2);
+            if(selectedArray===0){
+                var num1 = Math.floor(Math.random() * charSet.lowerCase.length);
+                charUse = charUse + charSet.lowerCase[num1];
+            }
+            else if (selectedArray === 1) {
+                var num2 = Math.floor(Math.random() * charSet.numbers.length);
+                charUse = charUse + charSet.numbers[num2];
+            
+            }   
+            else {
+                var num3 = Math.floor(Math.random() * charSet.special.length);
+                charUse = charUse + charSet.special[num3];
+            }          
+            
+        }
+        return charUse;
+    } 
+    
+    else if (useUpperCase === false && useNumbers === false && useSpecial === true){
+        for (var i = 0; i < charLength; i++){
+            var selectedArray = Math.round(Math.random());
+            if(selectedArray===0){
+                var num1 = Math.floor(Math.random() * charSet.lowerCase.length);
+                charUse = charUse + charSet.lowerCase[num1];
+            }
+            else{
+                var num2 = Math.floor(Math.random() * charSet.special.length);
+                charUse = charUse + charSet.special[num2];
+
+            }
+            
+        }
+        
+        return charUse;
+    } 
+    
+    else {
+        for (var i = 0; i < charLength; i++){
+            var selectedArray = Math.round(Math.random()*4);
+            if(selectedArray===0){
+                var num1 = Math.floor(Math.random() * charSet.lowerCase.length);
+                charUse = charUse + charSet.lowerCase[num1];
+            }
+            else if (selectedArray === 1) {
+                var num2 = Math.floor(Math.random() * charSet.upperCase.length);
+                charUse = charUse + charSet.upperCase[num2];
+            
+            }   
+            else if (selectedArray === 2) {
+                var num3 = Math.floor(Math.random() * charSet.numbers.length);
+                charUse = charUse + charSet.numbers[num3];
+            }
+            else {
+                var num4 = Math.floor(Math.random() * charSet.special.length);
+                charUse = charUse + charSet.special[num4];
+            }
+            
+        }
+        return charUse;
     }
 
     
