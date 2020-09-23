@@ -58,22 +58,45 @@ function generatePassword(charLength) {
         //After looping through, return character chain.
     return charUse;
     } 
+
+    else if (useLowerCase === false && useUpperCase === true && useNumbers === false && useSpecial === false){
+        //For loop that runs for the length of charLength selected by user
+        for (var i = 0; i < charLength; i++){
+            var num = Math.floor(Math.random() * charSet.upperCase.length);
+        charUse = charUse + charSet.upperCase[num];
+        }
+        return charUse;
+    }
+
+    else if (useLowerCase === false && useUpperCase === false && useNumbers === true && useSpecial === false){
+        //For loop that runs for the length of charLength selected by user
+        for (var i = 0; i < charLength; i++){
+            var num = Math.floor(Math.random() * charSet.numbers.length);
+        charUse = charUse + charSet.numbers[num];
+        }
+        return charUse;
+    }
+
+    else if (useLowerCase === false && useUpperCase === false && useNumbers === false && useSpecial === true){
+        //For loop that runs for the length of charLength selected by user
+        for (var i = 0; i < charLength; i++){
+            var num = Math.floor(Math.random() * charSet.special.length);
+        charUse = charUse + charSet.special[num];
+        }
+        return charUse;
+    }
+
     //If lower case and upper case are confirmed
     else if (useLowerCase === true && useUpperCase === true && useNumbers === false  && useSpecial === false) {
        ///For loop that runs for the length of charLength selected by user
         for (var i = 0; i < charLength; i++){
-            
             var selectedArray = Math.round(Math.random());
             if(selectedArray===0){
                 var num1 = Math.floor(Math.random() * charSet.lowerCase.length);
                 charUse = charUse + charSet.lowerCase[num1];
-            }
-            else{
+            }else{
                 var num2 = Math.floor(Math.random() * charSet.upperCase.length);
-                charUse = charUse + charSet.upperCase[num2];
-
-            }
-            
+                charUse = charUse + charSet.upperCase[num2];} 
         }
     return charUse;
     } 
@@ -85,17 +108,14 @@ function generatePassword(charLength) {
             if(selectedArray===0){
                 var num1 = Math.floor(Math.random() * charSet.lowerCase.length);
                 charUse = charUse + charSet.lowerCase[num1];
-            }
-            else if (selectedArray === 1) {
+            } else if (selectedArray === 1) {
                 var num2 = Math.floor(Math.random() * charSet.upperCase.length);
                 charUse = charUse + charSet.upperCase[num2];
             
-            }   
-            else {
+            } else {
                 var num3 = Math.floor(Math.random() * charSet.numbers.length);
                 charUse = charUse + charSet.numbers[num3];
             }          
-            
         }
     return charUse;
     } 
@@ -107,26 +127,14 @@ function generatePassword(charLength) {
             if(selectedArray===1){
                 var num1 = Math.floor(Math.random() * charSet.lowerCase.length);
                 charUse = charUse + charSet.lowerCase[num1];
-            }
-            else if (selectedArray === 2) {
+            } else if (selectedArray === 2) {
                 var num2 = Math.floor(Math.random() * charSet.numbers.length);
                 charUse = charUse + charSet.numbers[num2];
             
-            }   
-            else {
+            } else {
                 var num3 = Math.floor(Math.random() * charSet.special.length);
                 charUse = charUse + charSet.special[num3];
-            }          
-            
-        }
-    return charUse;
-    } 
-    
-    else if (useLowerCase === false && useUpperCase === true && useNumbers === false  && useSpecial === false) {
-        //For loop that runs for the length of charLength selected by user
-        for (var i = 0; i < charLength; i++){
-            var num = Math.floor(Math.random() * charSet.upperCase.length);
-        charUse = charUse + charSet.upperCase[num];
+            }  
         }
     return charUse;
     } 
@@ -143,7 +151,6 @@ function generatePassword(charLength) {
                 var num2 = Math.floor(Math.random() * charSet.numbers.length);
                 charUse = charUse + charSet.numbers[num2];
             }          
-            
         }
     return charUse;
     }
@@ -155,9 +162,7 @@ function generatePassword(charLength) {
             if (selectedArray === 1) {
                 var num1 = Math.floor(Math.random() * charSet.upperCase.length);
                 charUse = charUse + charSet.upperCase[num1];
-            
-            }   
-            else {
+            } else {
                 var num2 = Math.floor(Math.random() * charSet.special.length);
                 charUse = charUse + charSet.special[num2];
             }          
@@ -173,29 +178,17 @@ function generatePassword(charLength) {
             if(selectedArray===1){
                 var num1 = Math.floor(Math.random() * charSet.upperCase.length);
                 charUse = charUse + charSet.upperCase[num1];
-            }
-            else if (selectedArray === 2) {
+            } else if (selectedArray === 2) {
                 var num2 = Math.floor(Math.random() * charSet.numbers.length);
                 charUse = charUse + charSet.numbers[num2];
             
-            }   
-            else {
+            } else {
                 var num3 = Math.floor(Math.random() * charSet.special.length);
                 charUse = charUse + charSet.special[num3];
             }          
-            
         }
     return charUse;
     } 
-    
-    else if (useLowerCase === false && useUpperCase === false && useNumbers === true && useSpecial === false){
-        //For loop that runs for the length of charLength selected by user
-        for (var i = 0; i < charLength; i++){
-            var num = Math.floor(Math.random() * charSet.numbers.length);
-        charUse = charUse + charSet.numbers[num];
-        }
-        return charUse;
-    }
     
     else if (useLowerCase === false && useUpperCase === false && useNumbers === true && useSpecial === true){
         //For loop that runs for the length of charLength selected by user
@@ -205,21 +198,10 @@ function generatePassword(charLength) {
                 var num1 = Math.floor(Math.random() * charSet.numbers.length);
                 charUse = charUse + charSet.numbers[num1];
             
-            }   
-            else {
+            } else {
                 var num2 = Math.floor(Math.random() * charSet.special.length);
                 charUse = charUse + charSet.special[num2];
             }          
-            
-        }
-        return charUse;
-    } 
-    
-    else if (useLowerCase === false && useUpperCase === false && useNumbers === false && useSpecial === true){
-        //For loop that runs for the length of charLength selected by user
-        for (var i = 0; i < charLength; i++){
-            var num = Math.floor(Math.random() * charSet.special.length);
-        charUse = charUse + charSet.special[num];
         }
         return charUse;
     } 
@@ -231,27 +213,19 @@ function generatePassword(charLength) {
             if(selectedArray===0){
                 var num1 = Math.floor(Math.random() * charSet.lowerCase.length);
                 charUse = charUse + charSet.lowerCase[num1];
-            }
-            else if (selectedArray === 1) {
+            } else if (selectedArray === 1) {
                 var num2 = Math.floor(Math.random() * charSet.upperCase.length);
-                charUse = charUse + charSet.upperCase[num2];
-            
-            }   
-            else if (selectedArray === 2) {
+                charUse = charUse + charSet.upperCase[num2]; 
+            } else if (selectedArray === 2) {
                 var num3 = Math.floor(Math.random() * charSet.numbers.length);
                 charUse = charUse + charSet.numbers[num3];
-            }
-            else {
+            } else {
                 var num4 = Math.floor(Math.random() * charSet.special.length);
                 charUse = charUse + charSet.special[num4];
             }
-            
         }
         return charUse;
     }
-
-    
-
 }
 
 
