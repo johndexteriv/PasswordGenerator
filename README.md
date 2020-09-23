@@ -7,4 +7,5 @@
 5. Criteria consists of - lower case letters, upper case letters, numbers and special characters.
 6. When all prompts are answered, a password is generated that matches users selected criteria.
 
-
+https://johndexteriv.github.io/PasswordGenerator/
+![PasswordGenerator](pGen.png)
